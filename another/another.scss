@@ -1,0 +1,120 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    // border: 1px solid red;
+}
+
+.hero {
+    display: flex;
+    justify-content: flex-end;
+
+    .nav_toggle-wrapper {
+        margin: 1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        position: relative;
+
+        .nav_toggle {
+            position: absolute;
+            width: 40px;
+            height: 30px;
+            cursor: pointer;
+
+            svg {
+                color: white;
+                width: 30px;
+                height: 30px;
+            }
+
+        }
+
+        .nav_toggle--close svg {
+            color: rgb(0, 0, 0);
+        }
+
+
+
+
+    }
+
+
+    .nav-menu {
+        background: rgb(255, 255, 255);
+        position: absolute;
+        top: 0;
+        left: calc(80vw - 0);
+        width: 80vw;
+        height: 50vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        transition: 1s all;
+
+        .list {
+            transition: .5s ease-in-out;
+            margin: 20px 0 20px 0;
+
+            &>li {
+                list-style: none;
+                margin: 1.5em;
+                transition: .5s ease-in-out;
+
+                &:hover {
+                    transform: scale(3);
+                }
+
+                &>a {
+                    text-decoration: none;
+                    color: black;
+                    font-size: 1.5em;
+                    transition: .3s all;
+
+                    &:hover {
+                        color: rgb(70, 67, 67);
+                    }
+                }
+
+                &.ishidden {
+                    transform: translateY(-100%);
+                    opacity: 0;
+                }
+            }
+
+        }
+
+        &.isHidden {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+    }
+}
+
+//Animation Keyframes
+@keyframes burger-hover {
+
+    0% {
+
+        width: 100%;
+    }
+
+    50% {
+
+        width: 50%;
+    }
+
+    100% {
+
+        width: 100%;
+    }
+}

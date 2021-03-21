@@ -1,0 +1,116 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  font-family: "Oswald", sans-serif;
+}
+
+.hero {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+}
+.hero .container {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero .container .menu-icon {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+.hero .container .menu-icon .line {
+  border-radius: 2px;
+  width: 1em;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+  -webkit-animation: lines 0.5s ease-in-out forwards;
+          animation: lines 0.5s ease-in-out forwards;
+  -webkit-animation: lines-2 0.5s ease-in-out;
+          animation: lines-2 0.5s ease-in-out;
+}
+.hero .container .menu-icon .line::after {
+  border-radius: 2px;
+  content: "";
+  width: 2em;
+  height: 3px;
+  background-color: white;
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+.hero .container .menu-icon .line::before {
+  content: "";
+  border-radius: 2px;
+  width: 0.5em;
+  height: 3px;
+  background-color: white;
+  position: absolute;
+  top: -10px;
+  left: 0;
+}
+.hero .container .menu-icon .line::before, .hero .container .menu-icon .line::after {
+  transition: 0.3s all;
+}
+.hero .container .menu-icon > * {
+  pointer-events: none;
+  position: absolute;
+}
+.hero .container .menu-icon.open .line::after {
+  transition: 0.3s all;
+  top: 0;
+  transform: translateX(0em) rotate(-90deg);
+  width: 1.8em;
+}
+.hero .container .menu-icon.open .line::before {
+  transition: 0.3s all;
+  width: 2.2em;
+  top: 0;
+  transform: translateX(-0.3em) rotate(45deg);
+  opacity: 0;
+}
+.hero .container .menu-icon .line.open {
+  width: 1.8em;
+  transition: 0.5s ease-in-out;
+  transform: translateX(0em) rotate(90deg);
+}
+.hero .container .menu-icon.open {
+  transition: 0.7s all;
+  transform: rotate(225deg);
+  border: 2px solid white;
+  border-radius: 2px;
+}
+.hero .container .menu-icon.open::after {
+  content: " ";
+  display: block;
+  background-color: white;
+  border-radius: 100%;
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  top: 18px;
+  left: 18px;
+}
+.hero .container .menu-icon.open::before {
+  content: "";
+  display: block;
+  background-color: white;
+  border-radius: 100%;
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+}/*# sourceMappingURL=rebuild.css.map */

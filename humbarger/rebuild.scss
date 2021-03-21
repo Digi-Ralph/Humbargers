@@ -1,0 +1,142 @@
+$bg-color-w : rgb(255, 255, 255);
+$bg-color-b : rgb(0, 0, 0);
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Oswald', sans-serif;
+}
+
+
+
+.hero {
+    background-color: $bg-color-b;
+    width: 100vw;
+    height: 100vh;
+
+    .container {
+        // To be removed later
+
+        width: 100px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .menu-icon {
+            display: flex;
+            width: 30px;
+            height: 30px;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+            transition: 0.3s all;
+
+            .line {
+                border-radius: 2px;
+                width: 1em;
+                height: 3px;
+                background-color: $bg-color-w;
+                transition: all 0.3s ease-in-out;
+                animation: lines 0.5s ease-in-out forwards;
+                animation: lines-2 0.5s ease-in-out ;
+
+                &::after {
+                    border-radius: 2px;
+                    content: "";
+                    width: 2em;
+                    height: 3px;
+                    background-color: $bg-color-w;
+                    position: absolute;
+                    top: 10px;
+                    left: 0;
+
+                }
+
+                &::before {
+                    content: "";
+                    border-radius: 2px;
+                    width: 0.5em;
+                    height: 3px;
+                    background-color: $bg-color-w;
+                    position: absolute;
+                    top: -10px;
+                    left: 0;
+
+                }
+
+                &::before,
+                &::after {
+                    transition: 0.3s all;
+                }
+            }
+
+            &>* {
+                pointer-events: none;
+                position: absolute;
+            }
+
+            &.open .line::after {
+                transition: 0.3s all;
+                top: 0;
+                transform: translateX(0em) rotate(-90deg);
+                width: 1.8em;
+
+            }
+
+            &.open .line::before {
+                transition: 0.3s all;
+                width: 2.2em;
+                top: 0;
+                transform: translateX(-0.3em) rotate(45deg);
+                opacity: 0;
+            }
+
+            & .line.open {
+                width: 1.8em;
+                transition: 0.5s ease-in-out;
+                transform: translateX(0em) rotate(90deg);
+
+            }
+
+            &.open {
+                transition: 0.7s all;
+                transform: rotate(225deg);
+                border: 2px solid $bg-color-w;
+                border-radius: 2px;
+
+                &::after {
+                    content: " ";
+                    display: block;
+                    background-color: $bg-color-w;
+                    border-radius: 100%;
+                    width: 5px;
+                    height: 5px;
+                    position: absolute;
+                    top: 18px;
+                    left: 18px;
+                }
+
+                &::before {
+                    content: "";
+                    display: block;
+                    background-color: $bg-color-w;
+                    border-radius: 100%;
+                    width: 5px;
+                    height: 5px;
+                    position: absolute;
+                    top: 3px;
+                    left: 3px;
+                }
+            }
+
+        }
+
+    }
+
+}
